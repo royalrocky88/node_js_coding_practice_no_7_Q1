@@ -63,7 +63,7 @@ app.post("/login/", async (request, response) => {
   if (dbUser === undefined) {
     //------unregistered user tries to login then [Invalid User]------
     response.status(400);
-    response.send("Invalid User");
+    response.send("Invalid user");
   } else {
     //------Checking Password Match or Not--------
     const isPasswordMatch = await bcrypt.compare(password, dbUser.password);
@@ -77,7 +77,7 @@ app.post("/login/", async (request, response) => {
       //-----------------------------------------------------
     } else {
       response.status(400);
-      response.send("Invalid Password");
+      response.send("Invalid password");
     }
   }
 });
@@ -205,7 +205,7 @@ app.delete("/districts/:districtId/", middleWare, async (request, response) => {
 
   await db.run(removeDistId);
 
-  response.send("District Remove");
+  response.send("District Removed");
 });
 
 //-----API 7 Updates details specific district by district ID-----------
@@ -251,3 +251,4 @@ app.get("/states/:stateId/stats/", middleWare, async (request, response) => {
 });
 
 module.exports = app;
+//-----------------------finish-----------------------------------------------
