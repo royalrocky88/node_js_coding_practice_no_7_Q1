@@ -125,7 +125,7 @@ function middleWare(request, response, next) {
     jwt.verify(jwtToken, "findpwd", async (error, payload) => {
       if (error) {
         response.status(401);
-        response.send("Invalid Access Token");
+        response.send("Invalid JWT Token");
       } else {
         next();
       }
